@@ -6,11 +6,7 @@ function isAnagram(s: string, t: string): boolean {
 
     for(let i = 0; i < s.length; i++) {
         const currentChar: string = s[i];
-        if (!charInventory.has(currentChar)) {
-            charInventory.set(currentChar, 1)
-            continue
-        }
-        charInventory.set(currentChar, charInventory.get(currentChar)! + 1)
+        charInventory.set(currentChar, (charInventory.get(currentChar) || 0) + 1)
     }
 
     for(let i = 0; i < t.length; i++) {
