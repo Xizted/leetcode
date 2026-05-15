@@ -17,14 +17,13 @@ func isAnagram(s string, t string) bool {
 	}
 
 	for _, currentChar := range t {
-		if _, exist := charInventory[currentChar]; exist {
-			if isZero := charInventory[currentChar] == 0; isZero {
-				return false
-			}
-			charInventory[currentChar] = charInventory[currentChar] - 1
-		} else {
+		if _, exist := charInventory[currentChar]; !exist {
 			return false
 		}
+		if isZero := charInventory[currentChar] == 0; isZero {
+			return false
+		}
+		charInventory[currentChar] = charInventory[currentChar] - 1
 	}
 	return true
 }
